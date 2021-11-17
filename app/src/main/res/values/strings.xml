@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Covidscape</string>
+    <string name="email_address">Email</string>
+    <string name="pw">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="logout">Logout</string>
+    <string name="pic">Profile Picture</string>
+    <string name="sop_home_title">Indoor SOP</string>
+    <string name="sop_xhome_title">Outdoor SOP</string>
+    <string name="preparing_quiz">Preparing your quiz...</string>
+
+    <string-array name="cases">
+        <item> Local Cases  </item>
+        <item> Deaths (including BID) </item>
+        <item> Recovered </item>
+        <item> Population Vaccinated </item>
+        <item> Active Cases </item>
+    </string-array>
+
+    <string-array name="dailyCases">
+        <item> New Daily Cases </item>
+        <item> New Daily Deaths </item>
+        <item> New Daily Recovered </item>
+        <item> New Daily Vaccinated </item>
+        <item> Daily Active Cases Decrease </item>
+    </string-array>
+
+</resources>

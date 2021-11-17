@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblue">
+
+
+    <ScrollView
+        android:layout_width="392dp"
+        android:layout_height="658dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sopHomeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/fredokaone_regular"
+                android:text="@string/sop_home_title"
+                android:textAlignment="center"
+                android:textColor="@color/purple"
+                android:textSize="45dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/wash_your_hands" />
+
+            <TextView
+                android:id="@+id/hStep1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/sop_home_steps"
+                android:padding="20dp"
+                android:text="1 // Wash your hands often (before eating, preparing food, touching your face and after handling mask, touch animals, using restroom and coughing/sneezing/blowing nose)"
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_blue" />
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/sneeze" />
+
+
+            <TextView
+                android:id="@+id/hStep2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_home_steps"
+                android:padding="20dp"
+                android:text="2 // Cover your mouth and nose with tissue ir elbow when you cough or sneeze."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_blue" />
+
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="190dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/open_window" />
+
+            <TextView
+                android:id="@+id/hStep3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_home_steps"
+                android:padding="20dp"
+                android:text="3 // Open windows and doors to bring fresh air in to the house."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_blue" />
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/sick_social_distance" />
+
+            <TextView
+                android:id="@+id/hStep4"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_home_steps"
+                android:padding="20dp"
+                android:text="4 // Avoid close contact (3m distance) with family members that are sick. "
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_blue" />
+
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/disinfect_surface" />
+
+            <TextView
+                android:id="@+id/hStep5"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_home_steps"
+                android:padding="20dp"
+                android:text="5 // Clean and disinfect high touch surfaces daily."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/xBtnH"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="150dp"
+                android:background="#0000"
+                app:srcCompat="@drawable/x" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

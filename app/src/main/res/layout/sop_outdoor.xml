@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/lightblue">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sopxHomeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/fredokaone_regular"
+                android:text="@string/sop_xhome_title"
+                android:textAlignment="center"
+                android:textColor="@color/redorange"
+                android:textSize="45dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="190dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/wear_mask" />
+
+
+            <TextView
+                android:id="@+id/xhStep1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_xhome_steps"
+                android:padding="20dp"
+                android:text="1 // Wear a well-fitted mask that covers nose and mouth."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_yellow" />
+
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/social_distancing" />
+
+            <TextView
+                android:id="@+id/xhStep2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_xhome_steps"
+                android:padding="20dp"
+                android:text="2 // Stay 3m away from others (it is equivalent to your parent's 2 arms length)"
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_yellow" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/avoid_crowd" />
+
+            <TextView
+                android:id="@+id/xhStep3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_xhome_steps"
+                android:padding="20dp"
+                android:text="3 // Avoid crowded places and poor ventilated spaces."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_yellow" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/wash_hand" />
+
+            <TextView
+                android:id="@+id/xhStep4"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_xhome_steps"
+                android:padding="20dp"
+                android:text="4 //Wash your hand often wirh soap/ handsanitizers (before food, touching faces and after using restroom, leaving a public place and touching animals)."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/scroll_yellow" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/no_touch" />
+
+            <TextView
+                android:id="@+id/xhStep5"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/sop_xhome_steps"
+                android:padding="20dp"
+                android:text="5 // Avoid touching eyes, nose and mouth."
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+
+            <ImageButton
+                android:id="@+id/xBtnNH"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="150dp"
+                android:background="#0000"
+                app:srcCompat="@drawable/x" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

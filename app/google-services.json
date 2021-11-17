@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "488946061241",
+    "firebase_url": "https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "covidscape-login-logout-sop",
+    "storage_bucket": "covidscape-login-logout-sop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488946061241:android:eb17eb9e5179cc74f2f068",
+        "android_client_info": {
+          "package_name": "com.example.covidscape"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrvOguUwUV5Ok0x10KSX0r3LyJ7TowAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488946061241:android:ef50a5aa46962943f2f068",
+        "android_client_info": {
+          "package_name": "com.example.covidscapeloginlogoutsop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrvOguUwUV5Ok0x10KSX0r3LyJ7TowAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488946061241:android:b60dad861b7c5258f2f068",
+        "android_client_info": {
+          "package_name": "com.example.covidscapequiz30"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrvOguUwUV5Ok0x10KSX0r3LyJ7TowAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488946061241:android:5cd5c5321f35b5daf2f068",
+        "android_client_info": {
+          "package_name": "com.example.quizapp_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJrvOguUwUV5Ok0x10KSX0r3LyJ7TowAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488946061241-0hregaqfs1ghqs4ikgbjn3sbve0foji2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
