@@ -27,7 +27,7 @@
         <activity android:name=".sopOutdoor"></activity>
         <activity android:name=".login"></activity>
         <activity android:name=".quiz"></activity>
-        <activity android:name=".Signup"></activity>
+        <activity android:name=".signup"></activity>
         <activity android:name=".loadingQuiz"></activity>
         <activity android:name=".ScoreActivity"></activity>
         <activity android:name=".QuizActivity"></activity>
