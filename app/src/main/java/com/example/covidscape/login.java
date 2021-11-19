@@ -1,6 +1,8 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaParser;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -34,6 +36,7 @@ public class login extends AppCompatActivity {
         etPw = findViewById(R.id.password);
 
         loginBtn = findViewById(R.id.loginButton);
+        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
         signupBtn = findViewById(R.id.signupButton);
 
         forgotPass = findViewById(R.id.forgotPassword);
@@ -43,11 +46,13 @@ public class login extends AppCompatActivity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaplayer.start();
                 startActivity(new Intent(login.this, signup.class));
             }
         });
 
         loginBtn.setOnClickListener(view -> {
+            mediaplayer.start();
             loginButtonClicked = true;
             loginOrSignUp();
         });

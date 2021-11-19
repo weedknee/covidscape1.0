@@ -8,8 +8,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/writting"
-        android:layout_width="239dp"
-        android:layout_height="296dp"
+        android:layout_width="238dp"
+        android:layout_height="276dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +19,7 @@
         app:lottie_rawRes="@raw/profilecard"
         app:lottie_repeatCount="2"
         tools:ignore="MissingConstraints" />
+
 
     <EditText
         android:id="@+id/accPassword"
@@ -41,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accUsername"
-        app:layout_constraintVertical_bias="0.494"
+        app:layout_constraintVertical_bias="0.638"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -65,7 +66,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/writting"
-        app:layout_constraintVertical_bias="0.688"
+        app:layout_constraintVertical_bias="0.729"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -89,9 +90,8 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
+        app:layout_constraintVertical_bias="0.447"
         app:layout_constraintWidth_percent="0.8" />
-
 
     <EditText
         android:id="@+id/accFirstName"
@@ -114,7 +114,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54"
+        app:layout_constraintVertical_bias="0.545"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -138,7 +138,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613"
+        app:layout_constraintVertical_bias="0.639"
         app:layout_constraintWidth_percent="0.8" />
 
     <TextView
@@ -172,7 +172,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accUsername"
-        app:layout_constraintVertical_bias="0.716"
+        app:layout_constraintVertical_bias="0.865"
         app:layout_constraintWidth_percent="0.8" />
 
 
