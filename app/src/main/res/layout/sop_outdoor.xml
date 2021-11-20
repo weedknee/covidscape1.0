@@ -54,9 +54,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/sop_xhome_steps"
                 android:padding="20dp"
+                android:fontFamily="@font/fredokaone_regular"
                 android:text="1 // Wear a well-fitted mask that covers nose and mouth."
-                android:textColor="@color/purple"
-                android:textStyle="bold" />
+                android:textColor="@color/purple"/>
 
             <ImageView
                 android:layout_width="128dp"
@@ -81,9 +81,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/sop_xhome_steps"
                 android:padding="20dp"
+                android:fontFamily="@font/fredokaone_regular"
                 android:text="2 // Stay 3m away from others (it is equivalent to your parent's 2 arms length)"
-                android:textColor="@color/purple"
-                android:textStyle="bold" />
+                android:textColor="@color/purple" />
 
             <ImageView
                 android:layout_width="128dp"
@@ -107,9 +107,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/sop_xhome_steps"
                 android:padding="20dp"
+                android:fontFamily="@font/fredokaone_regular"
                 android:text="3 // Avoid crowded places and poor ventilated spaces."
-                android:textColor="@color/purple"
-                android:textStyle="bold" />
+                android:textColor="@color/purple" />
 
             <ImageView
                 android:layout_width="128dp"
@@ -133,9 +133,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/sop_xhome_steps"
                 android:padding="20dp"
+                android:fontFamily="@font/fredokaone_regular"
                 android:text="4 //Wash your hand often wirh soap/ handsanitizers (before food, touching faces and after using restroom, leaving a public place and touching animals)."
-                android:textColor="@color/purple"
-                android:textStyle="bold" />
+                android:textColor="@color/purple"/>
 
             <ImageView
                 android:layout_width="128dp"
@@ -159,10 +159,9 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/sop_xhome_steps"
                 android:padding="20dp"
+                android:fontFamily="@font/fredokaone_regular"
                 android:text="5 // Avoid touching eyes, nose and mouth."
-                android:textColor="@color/purple"
-                android:textStyle="bold" />
-
+                android:textColor="@color/purple"/>
 
             <ImageButton
                 android:id="@+id/xBtnNH"

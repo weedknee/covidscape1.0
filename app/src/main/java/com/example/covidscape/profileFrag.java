@@ -1,6 +1,7 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,13 +29,12 @@ import org.w3c.dom.Text;
 
 public class profileFrag extends Fragment {
 
-    private Button logoutBtn;
+    private Button logoutBtn, updateBtn;
     private ImageButton arrowBack;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-
 
     @Nullable
     @Override
@@ -43,12 +43,26 @@ public class profileFrag extends Fragment {
 
         logoutBtn = (Button) v.findViewById(R.id.logoutButton);
         arrowBack = (ImageButton) v.findViewById(R.id.arrowBackHomepage);
+        updateBtn = (Button) v.findViewById(R.id.editProfileBtn);
+
+        //button sound effect for fragment
+        final MediaPlayer mediaplayer = MediaPlayer.create(getActivity(),R.raw.pop);
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(getActivity(),updateProfile.class);
+                startActivity(intent);
+                mediaplayer.start();
+            }
+        });
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), login.class);
                 startActivity(intent);
+                mediaplayer.start();
                 Toast.makeText(getActivity(), "Please Perform Login/Sign Up", Toast.LENGTH_LONG).show();
             }
         });
@@ -57,9 +71,10 @@ public class profileFrag extends Fragment {
         reference = FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         userID = user.getUid();
 
-        final EditText userUsernameTextView = (EditText) v.findViewById(R.id.username);
+        final TextView userUsernameTextView = (TextView) v.findViewById(R.id.username);
         final EditText firstNameTextView = (EditText) v.findViewById(R.id.firstName);
         final EditText lastNameTextView = (EditText) v.findViewById(R.id.lastName);
+        final EditText emailTextView = (EditText) v.findViewById(R.id.email);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -70,10 +85,12 @@ public class profileFrag extends Fragment {
                     String username = userProfile.username;
                     String firstName = userProfile.firstName;
                     String lastName = userProfile.lastName;
+                    String email = userProfile.email;
 
                     userUsernameTextView.setText(username);
                     firstNameTextView.setText(firstName);
                     lastNameTextView.setText(lastName);
+                    emailTextView.setText(email);
                 }
             }
 
@@ -87,6 +104,7 @@ public class profileFrag extends Fragment {
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaplayer.start();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
@@ -94,4 +112,5 @@ public class profileFrag extends Fragment {
 
         return v;
     }
+
 }

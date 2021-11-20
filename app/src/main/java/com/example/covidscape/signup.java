@@ -1,10 +1,12 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
 
     private EditText username, email, password, firstName, lastName;
     private Button registerUserBtn;
+    private ImageButton signupBack;
     private FirebaseAuth mAuth;
 
 
@@ -41,23 +44,37 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         firstName = findViewById(R.id.accFirstName);
         lastName = findViewById(R.id.accLastName);
 
-        mAuth = FirebaseAuth.getInstance();
+        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+        signupBack = findViewById(R.id.signupBackBtn);
+        signupBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaplayer.start();
+                startActivity(new Intent(signup.this,login.class));
+            }
+        });
 
+        mAuth = FirebaseAuth.getInstance();
 
         registerUserBtn = findViewById(R.id.Done);
         registerUserBtn.setOnClickListener(this);
 
     }
 
+
     @Override
     public void onClick(View v) {
+        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
         switch (v.getId()) {
             case R.id.Done:
+                mediaplayer.start();
                 registerUser();
                 startActivity(new Intent(signup.this,login.class));
                 break;
         }
     }
+
+
 
     private void registerUser() {
         String getUsername = username.getText().toString().trim();

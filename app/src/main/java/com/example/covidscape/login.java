@@ -60,6 +60,7 @@ public class login extends AppCompatActivity {
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaplayer.start();
                 startActivity(new Intent(login.this,forgotPassword.class));
             }
         });

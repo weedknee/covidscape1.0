@@ -17,12 +17,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/varelaroundregular"
+        android:fontFamily="@font/fredokaone_regular"
         android:gravity="center"
         android:text="Active COVID-19 Cases"
         android:textColor="@color/yellow"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/cases_date"
@@ -38,8 +37,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="369dp"
-        android:layout_height="730dp"
+        android:layout_width="379dp"
+        android:layout_height="650dp"
         android:layout_below="@id/cases_date"
         android:layout_marginStart="10dp"
         android:layout_marginTop="13dp"
@@ -55,6 +54,24 @@
         android:indeterminate="true"
         android:visibility="gone"
         android:layout_centerInParent="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/newsBackBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="756dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/button_signup"
+        android:fontFamily="@font/fredokaone_regular"
+        android:text="Back"
+        android:textColor="@color/morigreen"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>

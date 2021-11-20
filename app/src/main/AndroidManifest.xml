@@ -34,6 +34,7 @@
         <activity android:name=".pop" android:theme="@style/Theme.AppCompat.transparent_bg"></activity>
         <activity android:name=".covidNews" ></activity>
         <activity android:name=".forgotPassword" ></activity>
+        <activity android:name=".updateProfile"></activity>
 
 
         <service android:name=".pushNotification" android:exported="false">

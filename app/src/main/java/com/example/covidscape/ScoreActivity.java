@@ -1,6 +1,7 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.sax.StartElementListener;
 import android.view.View;
@@ -23,6 +24,9 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score);
 
+        //button sound effect for activity
+        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+
 
         score=getIntent().getIntExtra("score",0);
 
@@ -32,6 +36,7 @@ public class ScoreActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaplayer.start();
                 startActivity(new Intent(ScoreActivity.this,quiz.class));
             }
         });

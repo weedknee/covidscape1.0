@@ -1,6 +1,7 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,12 +40,15 @@ public class homeFrag extends Fragment {
         quiz = (ImageButton) v.findViewById(R.id.quiz);
         covidNews = (ImageButton) v.findViewById(R.id.covidNewsBtn);
 
+        //button sound effect for fragment
+        final MediaPlayer mediaplayer = MediaPlayer.create(getActivity(),R.raw.pop);
 
         indoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), sopIndoor.class);
                 startActivity(intent);
+                mediaplayer.start();
                 }
         });
 
@@ -53,6 +57,7 @@ public class homeFrag extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), sopOutdoor.class);
                 startActivity(intent);
+                mediaplayer.start();
             }
         });
 
@@ -61,6 +66,7 @@ public class homeFrag extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),quiz.class);
                 startActivity(intent);
+                mediaplayer.start();
             }
         });
 
@@ -69,6 +75,7 @@ public class homeFrag extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), covidNews.class);
                 startActivity(intent);
+                mediaplayer.start();
             }
         });
 

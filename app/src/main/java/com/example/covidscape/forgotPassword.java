@@ -1,12 +1,14 @@
 package com.example.covidscape;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ public class forgotPassword extends AppCompatActivity {
 
     private EditText emailEditTxt;
     private Button resetBtn;
+    private ImageButton backBtn;
 
     FirebaseAuth auth;
 
@@ -34,10 +37,21 @@ public class forgotPassword extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+
+        backBtn = findViewById(R.id.forgotPassBackBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaplayer.start();
+                startActivity(new Intent(forgotPassword.this,login.class));
+            }
+        });
 
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaplayer.start();
                 resetPassword();
                 startActivity(new Intent(forgotPassword.this,login.class));
             }
