@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class sopOutdoor extends AppCompatActivity {
     ImageButton back2Homepage;
-    private MediaPlayer mediaPlayerBgm;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -19,10 +18,6 @@ public class sopOutdoor extends AppCompatActivity {
 
         //button sound effect for activity
         final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
-
-        mediaPlayerBgm = MediaPlayer.create(sopOutdoor.this,R.raw.overcooked2bgm);
-        mediaPlayerBgm.setLooping(true);
-        mediaPlayerBgm.start();
 
         back2Homepage = findViewById(R.id.xBtnNH);
         back2Homepage.setOnClickListener(new View.OnClickListener() {

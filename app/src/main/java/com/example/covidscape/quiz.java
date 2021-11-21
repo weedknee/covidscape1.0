@@ -13,8 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class quiz extends AppCompatActivity {
 
-    Button start, leaderboard, instruction, back ;
-
+    Button start, instruction, back ;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -25,9 +24,9 @@ public class quiz extends AppCompatActivity {
         back = findViewById(R.id.backBtn);
         instruction = findViewById(R.id.intsructionBtn);
 
+
         //button sound effect for activity
         final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
-
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

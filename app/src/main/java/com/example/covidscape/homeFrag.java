@@ -29,6 +29,7 @@ public class homeFrag extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+   // private MediaPlayer bgmPlayer;
 
     @Nullable
     @Override
@@ -40,15 +41,20 @@ public class homeFrag extends Fragment {
         quiz = (ImageButton) v.findViewById(R.id.quiz);
         covidNews = (ImageButton) v.findViewById(R.id.covidNewsBtn);
 
-        //button sound effect for fragment
         final MediaPlayer mediaplayer = MediaPlayer.create(getActivity(),R.raw.pop);
+//
+//        bgmPlayer = MediaPlayer.create(getActivity(),R.raw.nekoatsumebgm);
+//        bgmPlayer.setVolume(30,30);
+//        bgmPlayer.setLooping(true);
+//        bgmPlayer.start();
+
 
         indoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), sopIndoor.class);
-                startActivity(intent);
                 mediaplayer.start();
+                startActivity(intent);
                 }
         });
 
@@ -56,8 +62,8 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), sopOutdoor.class);
-                startActivity(intent);
                 mediaplayer.start();
+                startActivity(intent);
             }
         });
 
@@ -65,8 +71,8 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),quiz.class);
-                startActivity(intent);
                 mediaplayer.start();
+                startActivity(intent);
             }
         });
 
@@ -74,8 +80,8 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), covidNews.class);
-                startActivity(intent);
                 mediaplayer.start();
+                startActivity(intent);
             }
         });
 
@@ -108,7 +114,16 @@ public class homeFrag extends Fragment {
 
         return v;
     }
-
-
-
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        bgmPlayer.start();
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        bgmPlayer.pause();
+//    }
 }

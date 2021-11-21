@@ -7,79 +7,68 @@
     tools:context=".petFrag"
     android:background="@color/darkblue">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gifImageView2"
-        android:layout_width="match_parent"
-        android:layout_height="323dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="304dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bulba"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
 
-    <TextView
-        android:id="@+id/levelTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/fredokaone_regular"
-        android:gravity="center"
-        android:text="Level 1"
-        android:textColor="#DE62BD"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        tools:layout_editor_absoluteX="0dp" />
+<!--    <pl.droidsonroids.gif.GifImageView-->
+<!--        android:id="@+id/gifImageView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="323dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginTop="304dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/bulba"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:layout_editor_absoluteX="16dp" />-->
+
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="408dp"
-        android:src="@drawable/bar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:id="@+id/imgAvatar"
+        android:layout_width="213dp"
+        android:layout_height="212dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/girl_lvl0"
+        app:layout_constraintBottom_toTopOf="@+id/barLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
     <TextView
-        android:id="@+id/petTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/txtUsername"
+        android:layout_width="203dp"
+        android:layout_height="44dp"
+        android:textSize="35sp"
         android:fontFamily="@font/fredokaone_regular"
-        android:gravity="center"
-        android:text="PET"
         android:textColor="@color/yellow"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/levelTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218"
-        tools:layout_editor_absoluteX="16dp" />
+        android:text="Username"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/imgAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/barLevel"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="213dp"
+        android:layout_height="20dp"
+        android:max="100"
+        android:progressTint="@color/purple"
+        app:layout_constraintBottom_toTopOf="@+id/txtLevel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAvatar" />
 
     <TextView
-        android:id="@+id/petName"
-        android:layout_width="match_parent"
+        android:id="@+id/txtLevel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="@font/varelaroundregular"
-        android:gravity="center"
-        android:text="Bulbasaur"
-        android:textColor="#9EEAC1"
-        android:textSize="20dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/fredokaone_regular"
+        android:textColor="@color/yellow"
+        android:text="Level"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifImageView2"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="41dp" />
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barLevel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

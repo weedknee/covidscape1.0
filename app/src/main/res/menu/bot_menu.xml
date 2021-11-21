@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/firstFragment"
-        android:title="Settings"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Avatar"
+        android:icon="@drawable/console"
         />
     <item
         android:id="@+id/secondFragment"

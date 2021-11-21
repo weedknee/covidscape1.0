@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow">
+    android:background="@color/yellow"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-10dp">
+
+
+    <ImageButton
+        android:id="@+id/signupBackBtn"
+        android:layout_width="33dp"
+        android:layout_height="51dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="40dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021"
+        app:srcCompat="@drawable/arrow_back"
+        android:onClick="onClick"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/writting"
-        android:layout_width="238dp"
-        android:layout_height="276dp"
+        android:layout_width="222dp"
+        android:layout_height="206dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +41,6 @@
         app:lottie_repeatCount="2"
         tools:ignore="MissingConstraints" />
 
-
     <EditText
         android:id="@+id/accPassword"
         android:layout_width="0dp"
@@ -29,7 +49,7 @@
         android:drawableLeft="@drawable/lock_icon"
         android:drawablePadding="10dp"
         android:drawableTint="@color/hintcolor"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingStart="20dp"
@@ -39,10 +59,10 @@
         android:textColorHint="@color/hintcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accUsername"
-        app:layout_constraintVertical_bias="0.638"
+        app:layout_constraintVertical_bias="0.397"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -53,7 +73,7 @@
         android:drawableLeft="@drawable/mail_icon"
         android:drawablePadding="10dp"
         android:drawableTint="@color/hintcolor"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingStart="20dp"
@@ -63,34 +83,10 @@
         android:textColorHint="@color/hintcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/writting"
-        app:layout_constraintVertical_bias="0.729"
-        app:layout_constraintWidth_percent="0.8" />
-
-    <EditText
-        android:id="@+id/accUsername"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_box"
-        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-        android:drawablePadding="10dp"
-        android:drawableTint="@color/hintcolor"
-        android:fontFamily="@font/fredokaone_regular"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:paddingStart="20dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="10dp"
-        android:textColorHint="@color/hintcolor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintVertical_bias="0.575"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -101,7 +97,7 @@
         android:drawableLeft="@drawable/ic_baseline_account_circle_24"
         android:drawablePadding="10dp"
         android:drawableTint="@color/hintcolor"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:hint="First Name"
         android:inputType="textPersonName"
         android:paddingStart="20dp"
@@ -111,10 +107,34 @@
         android:textColorHint="@color/hintcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
+        app:layout_constraintVertical_bias="0.429"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <EditText
+        android:id="@+id/accUsername"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_box"
+        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/hintcolor"
+        android:fontFamily="@font/varelaroundregular"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="@color/hintcolor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357"
         app:layout_constraintWidth_percent="0.8" />
 
     <EditText
@@ -125,7 +145,7 @@
         android:drawableLeft="@drawable/ic_baseline_account_circle_24"
         android:drawablePadding="10dp"
         android:drawableTint="@color/hintcolor"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:hint="Last Name"
         android:inputType="textPersonName"
         android:paddingStart="20dp"
@@ -135,17 +155,18 @@
         android:textColorHint="@color/hintcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639"
+        app:layout_constraintVertical_bias="0.504"
         app:layout_constraintWidth_percent="0.8" />
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:text="Set Up Your Account"
         android:textColor="@color/grey"
         android:textSize="35dp"
@@ -157,39 +178,76 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.924" />
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Done"
         android:layout_width="200dp"
         android:layout_height="46dp"
+        android:layout_marginTop="22dp"
         android:background="@drawable/button_login"
-        android:fontFamily="@font/fredokaone_regular"
+        android:fontFamily="@font/varelaroundregular"
         android:text="Done"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accUsername"
-        app:layout_constraintVertical_bias="0.865"
+        app:layout_constraintTop_toBottomOf="@+id/radGroupAvatar"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.8" />
 
-
-    <ImageButton
-        android:id="@+id/signupBackBtn"
-        android:layout_width="33dp"
-        android:layout_height="51dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#0000"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RadioGroup
+        android:id="@+id/radGroupAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
-        app:srcCompat="@drawable/arrow_back" />
+        app:layout_constraintTop_toBottomOf="@+id/accPassword">
+
+
+        <RadioButton
+            android:id="@+id/radioBoy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            tools:layout_editor_absoluteX="211dp"
+            tools:layout_editor_absoluteY="566dp"></RadioButton>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/boy_lvl0" />
+
+        <RadioButton
+            android:id="@+id/radioGirl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="566dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/girl_lvl0" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtChooseAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="Choose your avatar"
+        android:fontFamily="@font/fredokaone_regular"
+        app:layout_constraintBottom_toTopOf="@+id/radGroupAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accPassword"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

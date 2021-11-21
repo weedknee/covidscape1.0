@@ -1,8 +1,8 @@
 package com.example.covidscape;
 
 import static com.example.covidscape.loadingQuiz.questionBank;
+
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -29,9 +29,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_start);
 
-        //button sound effect for activity
-        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
-
         question= findViewById(R.id.txtQuestion);
         options[0]= findViewById(R.id.btnOption1);
         options[1]= findViewById(R.id.btnOption2);
@@ -48,8 +45,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkAnswer(options[0]);
-                mediaplayer.start();
-                if(questionsAttempted==TOTAL_QUESTIONS){
+                if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
                 }
                 else{nextQuestion();}
@@ -60,8 +56,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkAnswer(options[1]);
-                mediaplayer.start();
-                if(questionsAttempted==TOTAL_QUESTIONS){
+                if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
                 }
                 else{nextQuestion();}
@@ -72,8 +67,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkAnswer(options[2]);
-                mediaplayer.start();
-                if(questionsAttempted==TOTAL_QUESTIONS){
+                if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
                 }
                 else{nextQuestion();}
@@ -84,8 +78,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkAnswer(options[3]);
-                mediaplayer.start();
-                if(questionsAttempted==TOTAL_QUESTIONS){
+                if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
                 }
                 else{nextQuestion();}

@@ -24,6 +24,7 @@ public class forgotPassword extends AppCompatActivity {
     private EditText emailEditTxt;
     private Button resetBtn;
     private ImageButton backBtn;
+    final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
 
     FirebaseAuth auth;
 
@@ -37,7 +38,6 @@ public class forgotPassword extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
 
         backBtn = findViewById(R.id.forgotPassBackBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
