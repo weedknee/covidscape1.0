@@ -19,7 +19,6 @@ public class sopIndoor extends AppCompatActivity {
         //button sound effect for activity
         final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
 
-
         back2Homepage = findViewById(R.id.xBtnH);
 
         back2Homepage.setOnClickListener(new View.OnClickListener() {

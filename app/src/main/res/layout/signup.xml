@@ -24,8 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.021"
-        app:srcCompat="@drawable/arrow_back"
-        android:onClick="onClick"/>
+        app:srcCompat="@drawable/arrow_back"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/writting"
