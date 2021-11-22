@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,12 +14,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    private MediaPlayer bgmPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        bgmPlayer = MediaPlayer.create(this,R.raw.home);
+        bgmPlayer.setVolume(20,20);
+        bgmPlayer.setLooping(true);
+        bgmPlayer.start();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
@@ -47,5 +57,25 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bgmPlayer.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bgmPlayer.stop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        bgmPlayer.stop();
+        bgmPlayer.release();
+
+    }
 
 }

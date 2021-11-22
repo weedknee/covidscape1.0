@@ -1,9 +1,13 @@
 package com.example.covidscape;
 
+import android.content.Intent;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -33,15 +37,30 @@ public class covidNews extends AppCompatActivity {
     private Elements localCases, recovered, vaccinated, dCases, dDate;
     private TextView dateView;
     private CovidNewsItem covidNewsItem;
-
+    private ImageButton backBtn;
+    private MediaPlayer mediaPlayer, bgmPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
+        mediaPlayer = MediaPlayer.create(this,R.raw.pop);
+        bgmPlayer = MediaPlayer.create(this,R.raw.news);
+        bgmPlayer.setVolume(20,20);
+        bgmPlayer.setLooping(true);
+        bgmPlayer.start();
+
         progressBar = findViewById(R.id.progressBar);
         recyclerView = findViewById(R.id.recycler);
         dateView = findViewById(R.id.cases_date);
+        backBtn = findViewById(R.id.newsBackBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+                startActivity(new Intent(covidNews.this,homeFrag.class));
+            }
+        });
 
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(covidNews.this);
@@ -122,6 +141,26 @@ public class covidNews extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bgmPlayer.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bgmPlayer.stop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        bgmPlayer.stop();
+        bgmPlayer.release();
+
     }
 
 }

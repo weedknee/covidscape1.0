@@ -3,6 +3,7 @@ package com.example.covidscape;
 import static com.example.covidscape.loadingQuiz.questionBank;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -24,6 +25,7 @@ public class QuizActivity extends AppCompatActivity {
     QuizHandler quizHandler;
     int index=0, currentScore=0, questionsAttempted=1;
     final int  TOTAL_QUESTIONS=5;
+    private MediaPlayer mediaPlayer, bgmPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -34,6 +36,11 @@ public class QuizActivity extends AppCompatActivity {
         options[1]= findViewById(R.id.btnOption2);
         options[2]= findViewById(R.id.btnOption3);
         options[3]= findViewById(R.id.btnOption4);
+        mediaPlayer = MediaPlayer.create(this,R.raw.pop);
+        bgmPlayer = MediaPlayer.create(this,R.raw.nekoatsumebgm);
+        bgmPlayer.setVolume(20,20);
+        bgmPlayer.setLooping(true);
+        bgmPlayer.start();
 
         progressBar= findViewById(R.id.progressBar2);
         allQuestions=questionBank;
@@ -44,6 +51,7 @@ public class QuizActivity extends AppCompatActivity {
         options[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaPlayer.start();
                 checkAnswer(options[0]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -55,6 +63,7 @@ public class QuizActivity extends AppCompatActivity {
         options[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaPlayer.start();
                 checkAnswer(options[1]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -66,6 +75,7 @@ public class QuizActivity extends AppCompatActivity {
         options[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaPlayer.start();
                 checkAnswer(options[2]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -77,6 +87,7 @@ public class QuizActivity extends AppCompatActivity {
         options[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mediaPlayer.start();
                 checkAnswer(options[3]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -134,5 +145,25 @@ public class QuizActivity extends AppCompatActivity {
         Intent intent = new Intent(QuizActivity.this, ScoreActivity.class);
         intent.putExtra("score", currentScore);
         startActivity(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        bgmPlayer.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bgmPlayer.stop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        bgmPlayer.stop();
+        bgmPlayer.release();
+
     }
 }

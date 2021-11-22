@@ -29,7 +29,7 @@ public class homeFrag extends Fragment {
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
-   // private MediaPlayer bgmPlayer;
+    private MediaPlayer bgmPlayer;
 
     @Nullable
     @Override
@@ -42,12 +42,6 @@ public class homeFrag extends Fragment {
         covidNews = (ImageButton) v.findViewById(R.id.covidNewsBtn);
 
         final MediaPlayer mediaplayer = MediaPlayer.create(getActivity(),R.raw.pop);
-//
-//        bgmPlayer = MediaPlayer.create(getActivity(),R.raw.nekoatsumebgm);
-//        bgmPlayer.setVolume(30,30);
-//        bgmPlayer.setLooping(true);
-//        bgmPlayer.start();
-
 
         indoor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,16 +108,5 @@ public class homeFrag extends Fragment {
 
         return v;
     }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        bgmPlayer.start();
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        bgmPlayer.pause();
-//    }
+
 }

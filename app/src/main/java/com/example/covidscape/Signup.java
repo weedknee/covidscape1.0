@@ -46,7 +46,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         password = findViewById(R.id.accPassword);
         firstName = findViewById(R.id.accFirstName);
         lastName = findViewById(R.id.accLastName);
-        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+        final MediaPlayer mediaplayer = MediaPlayer.create(this, R.raw.pop);
         back = findViewById(R.id.signupBackBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +67,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+        final MediaPlayer mediaplayer = MediaPlayer.create(this, R.raw.pop);
         switch (v.getId()) {
             case R.id.Done:
                 registerUser();

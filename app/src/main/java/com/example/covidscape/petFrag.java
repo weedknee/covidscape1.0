@@ -1,5 +1,6 @@
 package com.example.covidscape;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,64 +31,67 @@ public class petFrag extends Fragment {
     ProgressBar levelBar;
     ImageView avatarImg;
 
+
     DatabaseReference dbRef;
     private String userID;
     FirebaseUser user;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_pet, container, false);
-        levelTV=view.findViewById(R.id.txtLevel);
+        levelTV = view.findViewById(R.id.txtLevel);
         levelBar = view.findViewById(R.id.barLevel);
         usernameTV = view.findViewById(R.id.txtUsername);
         avatarImg = view.findViewById(R.id.imgAvatar);
 
         //scores update firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
-        dbRef= FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
-        userID=user.getUid();
+        dbRef = FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+        userID = user.getUid();
 
         dbRef.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user userProfile = snapshot.getValue(user.class);
-                if(userProfile != null){
+                if (userProfile != null) {
                     //calculate xp and level
-                    userXP= userProfile.userXP;
-                    userLevel=(int)(userXP/MAX_XP);
+                    userXP = userProfile.userXP;
+                    userLevel = (int) (userXP / MAX_XP);
                     //set text and progress
-                    levelTV.setText("Level "+userLevel);
-                    levelBar.setProgress(userProfile.userXP%MAX_XP);
+                    levelTV.setText("Level " + userLevel);
+                    levelBar.setProgress(userProfile.userXP % MAX_XP);
                     usernameTV.setText(userProfile.username);
 
                     String avatar = userProfile.getAvatar();
                     System.out.println(avatar);
 
-                    switch (userLevel){
+                    switch (userLevel) {
                         case 0:
-                            if (avatar.equals("boy")){
+                            if (avatar.equals("boy")) {
                                 avatarImg.setImageResource(R.drawable.boy_lvl0);
                             } else {
                                 avatarImg.setImageResource(R.drawable.girl_lvl0);
                             }
                             break;
                         case 1:
-                            if (avatar.equals("boy")){
+                            if (avatar.equals("boy")) {
                                 avatarImg.setImageResource(R.drawable.boy_lvl1);
                             } else {
                                 avatarImg.setImageResource(R.drawable.girl_lvl1);
                             }
                             break;
                         case 2:
-                            if (avatar.equals("boy")){
+                            if (avatar.equals("boy")) {
                                 avatarImg.setImageResource(R.drawable.boy_lvl2);
                             } else {
                                 avatarImg.setImageResource(R.drawable.girl_lvl2);
                             }
                             break;
                         default:
-                            if (avatar.equals("boy")){
+                            if (avatar.equals("boy")) {
                                 avatarImg.setImageResource(R.drawable.boy_lvl3);
                             } else {
                                 avatarImg.setImageResource(R.drawable.girl_lvl3);
@@ -99,16 +103,14 @@ public class petFrag extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getActivity(),"Something went wrong",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG).show();
 
             }
         });
         //set avatar according to levels
 
 
-
         return view;
     }
-
 
 }

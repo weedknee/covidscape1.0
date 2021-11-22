@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +35,9 @@ public class ScoreActivity extends AppCompatActivity {
     private String userID;
     FirebaseUser user;
 
-    final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
+    private MediaPlayer mediaplayer, victoryPlayer;
+    LottieAnimationView victoryConfetti;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -42,7 +45,10 @@ public class ScoreActivity extends AppCompatActivity {
 
 
         score=getIntent().getIntExtra("score",0);
-
+        victoryConfetti = findViewById(R.id.confetti);
+        victoryConfetti.animate();
+        mediaplayer = MediaPlayer.create(this,R.raw.pop);
+        victoryPlayer =MediaPlayer.create(this,R.raw.victory);
         circularProgressBar= (CircularProgressBar) findViewById(R.id.circularProgressBar);
         txtScore= (TextView) findViewById(R.id.txtScore);
         back = findViewById(R.id.backBtnQuiz);
@@ -54,6 +60,7 @@ public class ScoreActivity extends AppCompatActivity {
             }
         });
 
+        victoryPlayer.start();
         circularProgressBar.setProgress(score);
         txtScore.setText(score+"/"+TOTAL_QUESTIONS);
 
