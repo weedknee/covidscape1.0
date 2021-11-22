@@ -27,12 +27,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+//update activity to update user profile
 public class UpdateActivity extends AppCompatActivity {
     EditText usernameET, firstNameET, lastNameET, emailET;
     Button updateBtn, cancelBtn;
     DatabaseReference dbRef;
-    private String userID;
     FirebaseUser user;
+    private String userID;
     private MediaPlayer mediaPlayer;
 
     @Override

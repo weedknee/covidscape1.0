@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
+//Login Activity
 public class login extends AppCompatActivity {
 
     private TextView etEmail, etPw, forgotPass;
@@ -34,40 +34,36 @@ public class login extends AppCompatActivity {
 
         etEmail = findViewById(R.id.forgotPassEmail);
         etPw = findViewById(R.id.password);
-
         loginBtn = findViewById(R.id.loginButton);
         signupBtn = findViewById(R.id.signupButton);
-
         forgotPass = findViewById(R.id.forgotPassword);
 
         mAuth = FirebaseAuth.getInstance();
-
 
         final MediaPlayer mediaplayer = MediaPlayer.create(this, R.raw.pop);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaplayer.start();
-                startActivity(new Intent(login.this, Signup.class));
+                mediaplayer.start(); //button sound effect
+                startActivity(new Intent(login.this, Signup.class)); //direct to Signup activity
             }
         });
 
         loginBtn.setOnClickListener(view -> {
-            mediaplayer.start();
+            mediaplayer.start(); //button sound effect
             loginButtonClicked = true;
-            loginOrSignUp();
+            loginOrSignUp(); //function to login or signup
         });
 
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaplayer.start();
-                startActivity(new Intent(login.this, forgotPassword.class));
+                mediaplayer.start(); //button sound effect
+                startActivity(new Intent(login.this, forgotPassword.class)); //direct to forgotPassword activity
             }
         });
     }
-
 
     private void loginOrSignUp() {
         String loginEmail = etEmail.getText().toString();

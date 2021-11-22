@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+// adapter for recyclerView
 public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covidNewsViewHolder> {
 
     private ArrayList<covidNewsItem> covidNewsItems;
@@ -22,6 +23,7 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
         this.covidNewsItems = covidNewsItems;
     }
 
+    //create viewHolder for recyclerView
     @NonNull
     @Override
     public covidNewsAdapter.covidNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +31,7 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
         return new covidNewsViewHolder(view);
     }
 
+    //set value for each component of row item
     @Override
     public void onBindViewHolder(@NonNull covidNewsAdapter.covidNewsViewHolder holder, int position) {
         covidNewsAdapter.covidNewsViewHolder viewHolder = (covidNewsAdapter.covidNewsViewHolder) holder;
@@ -40,12 +43,13 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
         viewHolder.view4.setText(currentData.getDailyNum());
     }
 
+    //get item row to display
     @Override
     public int getItemCount() {
         return covidNewsItems.size();
-
     }
 
+    //get each component of item row
     public class covidNewsViewHolder extends RecyclerView.ViewHolder {
 
         private TextView view1, view2, view3, view4;
@@ -59,7 +63,5 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
             view4 = itemView.findViewById(R.id.total_daily_num);
             imageView = (ImageView) itemView.findViewById(R.id.icon);
         }
-
     }
-
 }

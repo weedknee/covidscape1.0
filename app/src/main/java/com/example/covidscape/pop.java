@@ -1,20 +1,14 @@
 package com.example.covidscape;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageButton;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+//Quiz Instruction pop up window activity
 public class pop extends AppCompatActivity {
 
+    //pop up window for instruction in Quiz activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +20,7 @@ public class pop extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
+        //set size of pop up window
         getWindow().setLayout((int)(width*.9), (int)(height*.4));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();

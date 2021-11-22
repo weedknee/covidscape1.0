@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//SOP guide for indoor
 public class sopIndoor extends AppCompatActivity {
     ImageButton back2Homepage;
     private MediaPlayer mediaPlayer, bgmPlayer;
@@ -21,8 +22,8 @@ public class sopIndoor extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this,R.raw.pop);
         bgmPlayer =MediaPlayer.create(this,R.raw.home);
 
+        //back button to Main Activity
         back2Homepage = findViewById(R.id.xBtnH);
-
         back2Homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,18 +33,21 @@ public class sopIndoor extends AppCompatActivity {
         });
     }
 
+    //bgm play
     @Override
     public void onResume() {
         super.onResume();
         bgmPlayer.start();
     }
 
+    //bgm pause
     @Override
     protected void onPause() {
         super.onPause();
         bgmPlayer.stop();
     }
 
+    //bgm end
     @Override
     public void onDestroy() {
         super.onDestroy();

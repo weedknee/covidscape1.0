@@ -24,6 +24,7 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 import java.util.HashMap;
 import java.util.Map;
 
+//Display Score from Quiz activity
 public class ScoreActivity extends AppCompatActivity {
     CircularProgressBar circularProgressBar;
     TextView txtScore;
@@ -43,14 +44,20 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score);
 
-
         score=getIntent().getIntExtra("score",0);
+
+        //animation
         victoryConfetti = findViewById(R.id.confetti);
         victoryConfetti.animate();
+
+        // background music and sound effect
         mediaplayer = MediaPlayer.create(this,R.raw.pop);
         victoryPlayer =MediaPlayer.create(this,R.raw.victory);
+
         circularProgressBar= (CircularProgressBar) findViewById(R.id.circularProgressBar);
         txtScore= (TextView) findViewById(R.id.txtScore);
+
+        //back button to Quiz activity
         back = findViewById(R.id.backBtnQuiz);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +67,8 @@ public class ScoreActivity extends AppCompatActivity {
             }
         });
 
-        victoryPlayer.start();
+        victoryPlayer.start(); // sound effect
+
         circularProgressBar.setProgress(score);
         txtScore.setText(score+"/"+TOTAL_QUESTIONS);
 
@@ -82,7 +90,6 @@ public class ScoreActivity extends AppCompatActivity {
 //                    Map<String, Object> pointsUpdate = new HashMap<>();
 //                    pointsUpdate.put(userID+"/userXP", newXP);
 //                    dbRef.updateChildren(pointsUpdate);
-
 
                 }
             }

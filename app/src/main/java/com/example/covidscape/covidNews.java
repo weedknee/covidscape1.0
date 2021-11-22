@@ -1,7 +1,6 @@
 package com.example.covidscape;
 
 import android.content.Intent;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,19 +9,17 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//Web scrapping real time data from covid.moh to display newest statistics
 public class covidNews extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -44,8 +41,10 @@ public class covidNews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
-        mediaPlayer = MediaPlayer.create(this,R.raw.pop);
-        bgmPlayer = MediaPlayer.create(this,R.raw.news);
+
+        //MediaPLayer
+        mediaPlayer = MediaPlayer.create(this,R.raw.pop); // button sound effect
+        bgmPlayer = MediaPlayer.create(this,R.raw.news); // activity BGM
         bgmPlayer.setVolume(20,20);
         bgmPlayer.setLooping(true);
         bgmPlayer.start();
@@ -54,11 +53,13 @@ public class covidNews extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
         dateView = findViewById(R.id.cases_date);
         backBtn = findViewById(R.id.newsBackBtn);
+
+        //back button to home
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                startActivity(new Intent(covidNews.this,homeFrag.class));
+                startActivity(new Intent(covidNews.this,MainActivity.class));
             }
         });
 
@@ -67,11 +68,11 @@ public class covidNews extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         CovidNewsAdapter = new covidNewsAdapter(covidNews.this, CovidNewsItems);
         recyclerView.setAdapter(CovidNewsAdapter);
-
         covidNewsItem = new CovidNewsItem();
         covidNewsItem.execute();
     }
 
+    //asyntask class file for web scrapping
     private class CovidNewsItem extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -85,9 +86,9 @@ public class covidNews extends AppCompatActivity {
         protected void onPostExecute(Void unused) {
             super.onPostExecute(unused);
 
-            dateView.setText(date_source);
+            dateView.setText(date_source); //show today's date
 
-
+            //add web scrap data to array list, object of CovidNewsItem to get data and display as row item in recyclerView
             cases = getResources().getStringArray(R.array.cases);
             dailyCases = getResources().getStringArray(R.array.dailyCases);
             CovidNewsItems.add(new covidNewsItem(R.drawable.ic_disease, cases[0], totalNum.get(0), dailyCases[0], dailNum.get(0)));
@@ -110,17 +111,20 @@ public class covidNews extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
+                //web scrap to parse content of the website
                 doc = Jsoup.connect("https://covidnow.moh.gov.my/").get();
 
-                //retrieve element tag content based on entered class name
+                //retrieve element tag content based on class name
                 localCases = doc.getElementsByClass("bg-blue-100 px-2 m-auto");
                 recovered = doc.getElementsByClass("number flex justify-center gap-1.5");
                 vaccinated = doc.getElementsByClass("relative self-end");
                 dCases = doc.getElementsByClass("font-bold text-xl lg:text-2xl mr-auto");
                 dDate = doc.getElementsByClass("col-span-1 text-xs text-gray-500 text-right tracking-tighter leading-3");
 
+                //get date of data source
                 date_source = dDate.get(0).text().trim();
 
+                //get text from retrieve element tag content and store into array list
                 ArrayList<String> temp = new ArrayList<>();
                 temp.add(dCases.get(5).text());
                 temp.add(dCases.get(4).text());
@@ -135,7 +139,6 @@ public class covidNews extends AppCompatActivity {
                     totalNum.add(temp.get(i).toString());
                     dailNum.add(temp.get(i + 1).toString());
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -143,6 +146,8 @@ public class covidNews extends AppCompatActivity {
         }
     }
 
+
+    //Media player function
     @Override
     public void onResume() {
         super.onResume();

@@ -8,19 +8,21 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//SOP guide for outdoor
 public class sopOutdoor extends AppCompatActivity {
     ImageButton back2Homepage;
     private MediaPlayer mediaPlayer, bgmPlayer;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sop_outdoor);
 
         //button sound effect for activity
-        mediaPlayer = MediaPlayer.create(this,R.raw.pop);
-        bgmPlayer =MediaPlayer.create(this,R.raw.home);
+        mediaPlayer = MediaPlayer.create(this, R.raw.pop);
+        bgmPlayer = MediaPlayer.create(this, R.raw.home);
 
+        //back button to Main Activity
         back2Homepage = findViewById(R.id.xBtnNH);
         back2Homepage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,18 +34,21 @@ public class sopOutdoor extends AppCompatActivity {
         });
     }
 
+    //bgm play
     @Override
     public void onResume() {
         super.onResume();
         bgmPlayer.start();
     }
 
+    //bgm pause
     @Override
     protected void onPause() {
         super.onPause();
         bgmPlayer.stop();
     }
 
+    //bgm end
     @Override
     public void onDestroy() {
         super.onDestroy();

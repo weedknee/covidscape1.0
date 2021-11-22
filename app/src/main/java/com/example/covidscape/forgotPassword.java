@@ -3,29 +3,25 @@ package com.example.covidscape;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
+//forgot password to reset password via email activity
 public class forgotPassword extends AppCompatActivity {
 
     private EditText emailEditTxt;
     private Button resetBtn;
     private ImageButton backBtn;
-    final MediaPlayer mediaplayer = MediaPlayer.create(this,R.raw.pop);
-
+    private MediaPlayer mediaplayer;
     FirebaseAuth auth;
 
     @Override
@@ -35,43 +31,45 @@ public class forgotPassword extends AppCompatActivity {
 
         emailEditTxt = findViewById(R.id.forgotPassEmail);
         resetBtn = findViewById(R.id.resetPassBtn);
+        backBtn = findViewById(R.id.forgotPassBackBtn);
 
         auth = FirebaseAuth.getInstance();
 
+        mediaplayer = MediaPlayer.create(this,R.raw.pop);
 
-        backBtn = findViewById(R.id.forgotPassBackBtn);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaplayer.start();
-                startActivity(new Intent(forgotPassword.this,login.class));
+                mediaplayer.start(); //button sound effect
+                startActivity(new Intent(forgotPassword.this,login.class)); //back to login activity
             }
         });
 
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaplayer.start();
-                resetPassword();
-                startActivity(new Intent(forgotPassword.this,login.class));
+                mediaplayer.start(); //button sound effect
+                resetPassword(); //function to reset password
+                startActivity(new Intent(forgotPassword.this,login.class)); //back to login activity
             }
         });
     }
 
     private void resetPassword() {
-        String eml = emailEditTxt.getText().toString().trim();
+        String eml = emailEditTxt.getText().toString().trim(); //get email from user
 
-        if(eml.isEmpty()){
-            emailEditTxt.setError("Email is required!");
+        if(eml.isEmpty()){ //if input is empty
+            emailEditTxt.setError("Email is required!"); //error message
             emailEditTxt.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(eml).matches()) {
-            emailEditTxt.setError("Please enter valid Email!");
+        if(!Patterns.EMAIL_ADDRESS.matcher(eml).matches()) { //if email doesn't match
+            emailEditTxt.setError("Please enter valid Email!"); //error message
             emailEditTxt.requestFocus();
             return;
         }
+            //send request to reset password to user's email
             auth.sendPasswordResetEmail(eml).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {

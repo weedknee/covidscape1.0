@@ -1,5 +1,6 @@
 package com.example.covidscape;
 
+//java class to store Covid news item
 public class covidNewsItem {
     private int imageResource;
     private String cases, dailyCases, totalNum, dailyNum;
@@ -10,10 +11,6 @@ public class covidNewsItem {
         this.dailyCases = dailyCases;
         this.totalNum = totalNum;
         this.dailyNum = dailyNum;
-    }
-
-    public covidNewsItem() {
-
     }
 
     public int getImageResource() {
@@ -55,7 +52,5 @@ public class covidNewsItem {
     public void setDailyNum(String dailyNum) {
         this.dailyNum = dailyNum;
     }
-//
-//    public void execute() {
-//    }
+
 }

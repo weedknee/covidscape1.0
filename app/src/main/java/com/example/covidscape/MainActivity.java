@@ -3,18 +3,12 @@ package com.example.covidscape;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.messaging.FirebaseMessaging;
 
-
+// Main Menu of 3 fragments: Avatar, Home , User Profile
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer bgmPlayer;
@@ -24,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //background music
         bgmPlayer = MediaPlayer.create(this,R.raw.home);
         bgmPlayer.setVolume(20,20);
         bgmPlayer.setLooping(true);
@@ -35,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new homeFrag()).commit();
     }
 
+    //bottom navigatin with 3 fragments
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -43,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.firstFragment:
-                            selectedFragment = new petFrag();
+                            selectedFragment = new petFrag(); //avatar fragment
                             break;
                         case R.id.secondFragment:
-                            selectedFragment = new homeFrag();
+                            selectedFragment = new homeFrag(); //home fragment
                             break;
                         case R.id.thirdFragment:
-                            selectedFragment = new profileFrag();
+                            selectedFragment = new profileFrag(); //profile fragment
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
@@ -58,18 +53,20 @@ public class MainActivity extends AppCompatActivity {
 
             };
 
+    //background music play
     @Override
     public void onResume() {
         super.onResume();
         bgmPlayer.start();
     }
-
+    //background music pause
     @Override
     protected void onPause() {
         super.onPause();
         bgmPlayer.stop();
     }
 
+    //background music end
     @Override
     public void onDestroy() {
         super.onDestroy();

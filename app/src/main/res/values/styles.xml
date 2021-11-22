@@ -9,6 +9,7 @@
         <item name="color">@color/black</item>
     </style>
 
+    <!--transparent pop up-->
     <style name="Theme.AppCompat.transparent_bg" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>

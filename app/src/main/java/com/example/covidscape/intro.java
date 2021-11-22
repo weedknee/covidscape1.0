@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
 
+//intro Splash Screen
 public class intro extends AppCompatActivity {
 
     ImageView intro, logo;
@@ -22,16 +23,17 @@ public class intro extends AppCompatActivity {
         setContentView(R.layout.activity_intro);
 
         introSound = MediaPlayer.create(this,R.raw.chime);
-        introSound.start();
+        introSound.start(); //splash screen sound effect
         logo = findViewById(R.id.logo);
         intro = findViewById(R.id.intro);
         lottie = findViewById(R.id.lottie);
+
         //animation play
         intro.animate();
         logo.animate();
         lottie.animate();
 
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable(){ //display login class after intro splash screen
             @Override
             public void run(){
                 Intent intent = new Intent(getApplicationContext(),login.class);
@@ -42,6 +44,7 @@ public class intro extends AppCompatActivity {
 
     }
 
+    //intro sound effect end
     @Override
     protected void onPause() {
         super.onPause();

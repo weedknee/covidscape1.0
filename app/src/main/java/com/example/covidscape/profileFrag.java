@@ -11,12 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,8 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
+//User profile fragment
 public class profileFrag extends Fragment {
 
     private Button logoutBtn, updateBtn;
@@ -52,26 +48,29 @@ public class profileFrag extends Fragment {
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(getActivity(),UpdateActivity.class);
+                mediaplayer.start(); //button sound effect
+                Intent intent =  new Intent(getActivity(),UpdateActivity.class); //direct to UpdateActivity
                 startActivity(intent);
-                mediaplayer.start();
             }
         });
 
+        //perform logout and direct to login screen
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaplayer.start(); //button sound effect
                 Intent intent = new Intent(getActivity(), login.class);
                 startActivity(intent);
-                mediaplayer.start();
                 Toast.makeText(getActivity(), "Please Perform Login/Sign Up", Toast.LENGTH_LONG).show();
             }
         });
 
+        //get user data from firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+        reference = FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users"); //retrieve user data from "Users" in firebase
         userID = user.getUid();
 
+        //declare textView to find id
         final TextView userUsernameTextView = (TextView) v.findViewById(R.id.username);
         final EditText firstNameTextView = (EditText) v.findViewById(R.id.firstName);
         final EditText lastNameTextView = (EditText) v.findViewById(R.id.lastName);
@@ -88,6 +87,7 @@ public class profileFrag extends Fragment {
                     String lastName = userProfile.lastName;
                     String email = userProfile.email;
 
+                    //set user info
                     userUsernameTextView.setText(username);
                     firstNameTextView.setText(firstName);
                     lastNameTextView.setText(lastName);
@@ -102,10 +102,11 @@ public class profileFrag extends Fragment {
             }
         });
 
+        //back button to Main activity
         arrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaplayer.start();
+                mediaplayer.start(); // button sound effect
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Collections;
 import java.util.List;
 
+//Quiz game based on SOP guides
 public class QuizActivity extends AppCompatActivity {
     ProgressBar progressBar;
     TextView question;
@@ -36,6 +37,8 @@ public class QuizActivity extends AppCompatActivity {
         options[1]= findViewById(R.id.btnOption2);
         options[2]= findViewById(R.id.btnOption3);
         options[3]= findViewById(R.id.btnOption4);
+
+        //background music & sound effect
         mediaPlayer = MediaPlayer.create(this,R.raw.pop);
         bgmPlayer = MediaPlayer.create(this,R.raw.nekoatsumebgm);
         bgmPlayer.setVolume(20,20);
@@ -51,7 +54,7 @@ public class QuizActivity extends AppCompatActivity {
         options[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
+                mediaPlayer.start(); //button sound effect
                 checkAnswer(options[0]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -63,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
         options[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
+                mediaPlayer.start(); //button sound effect
                 checkAnswer(options[1]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -75,7 +78,7 @@ public class QuizActivity extends AppCompatActivity {
         options[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
+                mediaPlayer.start(); //button sound effect
                 checkAnswer(options[2]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -87,7 +90,7 @@ public class QuizActivity extends AppCompatActivity {
         options[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
+                mediaPlayer.start(); //button sound effect
                 checkAnswer(options[3]);
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
@@ -147,18 +150,21 @@ public class QuizActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //bgm play
     @Override
     public void onResume() {
         super.onResume();
         bgmPlayer.start();
     }
 
+    //bgm pause
     @Override
     protected void onPause() {
         super.onPause();
         bgmPlayer.stop();
     }
 
+    //bgm end
     @Override
     public void onDestroy() {
         super.onDestroy();

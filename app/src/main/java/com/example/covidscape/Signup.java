@@ -20,17 +20,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-
+//Sign up Activity
 public class Signup extends AppCompatActivity implements View.OnClickListener {
 
-
     LottieAnimationView writing;
-
     private EditText username, email, password, firstName, lastName;
     private Button registerUserBtn;
     private ImageButton back;
     private FirebaseAuth mAuth;
     private RadioGroup radGAvatar;
+    private MediaPlayer mediaPlayer;
     int avatarChecked;
 
     @Override
@@ -38,6 +37,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        //animation
         writing = findViewById(R.id.writting);
         writing.animate();
 
@@ -46,12 +46,15 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         password = findViewById(R.id.accPassword);
         firstName = findViewById(R.id.accFirstName);
         lastName = findViewById(R.id.accLastName);
-        final MediaPlayer mediaplayer = MediaPlayer.create(this, R.raw.pop);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.pop);
+
+        //back button to login activity
         back = findViewById(R.id.signupBackBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaplayer.start();
+                mediaPlayer.start();
                 startActivity(new Intent(Signup.this,login.class));
             }
         });
@@ -64,19 +67,20 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
         radGAvatar=findViewById(R.id.radGroupAvatar);
     }
 
-
+    //switch case to perform sign up
     @Override
     public void onClick(View v) {
-        final MediaPlayer mediaplayer = MediaPlayer.create(this, R.raw.pop);
+        final MediaPlayer mediaplayerBtn = MediaPlayer.create(this, R.raw.pop);
         switch (v.getId()) {
             case R.id.Done:
+                mediaplayerBtn.start(); //button sound effect
                 registerUser();
-                mediaplayer.start();
                 startActivity(new Intent(Signup.this,login.class));
                 break;
         }
     }
 
+    // get text from user
     private void registerUser() {
         String getUsername = username.getText().toString().trim();
         String getPassword = password.getText().toString().trim();
@@ -98,8 +102,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            user User = new user(getUsername,getEmail,getfirstName,getLastName,0, avatar);
-                            FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+                            user User = new user(getUsername,getEmail,getfirstName,getLastName,0, avatar); //store into java user class
+                            FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users") //store in "Users" firebase database
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(User).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

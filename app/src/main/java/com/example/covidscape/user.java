@@ -1,6 +1,6 @@
 package com.example.covidscape;
 
-
+// java class to store user info
 public class user {
 
     public String username;

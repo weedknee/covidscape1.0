@@ -1,5 +1,6 @@
 package com.example.covidscape;
 
+//java class to store Quiz info
 public class QuizHandler {
     private String question;
     private String op1;
