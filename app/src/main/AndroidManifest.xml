@@ -22,24 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".sopIndoor"></activity>
-        <activity android:name=".sopOutdoor"></activity>
-        <activity android:name=".login"></activity>
-        <activity android:name=".quiz"></activity>
-        <activity android:name=".Signup"></activity>
-        <activity android:name=".loadingQuiz"></activity>
-        <activity android:name=".ScoreActivity"></activity>
-        <activity android:name=".QuizActivity"></activity>
-        <activity android:name=".pop" android:theme="@style/Theme.AppCompat.transparent_bg"></activity>
-        <activity android:name=".covidNews" ></activity>
-        <activity android:name=".forgotPassword" ></activity>
-        <activity android:name=".UpdateActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".sopIndoor" />
+        <activity android:name=".sopOutdoor" />
+        <activity android:name=".login" />
+        <activity android:name=".quiz" />
+        <activity android:name=".Signup" />
+        <activity android:name=".loadingQuiz" />
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".QuizActivity" />
+        <activity
+            android:name=".pop"
+            android:theme="@style/Theme.AppCompat.transparent_bg" />
+        <activity android:name=".covidNews" />
+        <activity android:name=".forgotPassword" />
+        <activity android:name=".UpdateActivity" />
 
 
         <service android:name=".pushNotification" android:exported="false">
             <intent-filter>
-                <action android:name=".com.google.firebase.MESSAGING_EVENT"></action>
+                <action android:name=".com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>
