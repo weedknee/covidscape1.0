@@ -1,8 +1,5 @@
 package com.example.covidscape;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,8 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.covidscape.R;
-import com.example.covidscape.user;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -49,6 +44,7 @@ public class UpdateActivity extends AppCompatActivity {
         updateBtn=findViewById(R.id.updateProfileBtn);
         cancelBtn=findViewById(R.id.cancelUpdateProfileBtn);
 
+        //get database reference to Users
         dbRef= FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID=user.getUid();
@@ -57,7 +53,8 @@ public class UpdateActivity extends AppCompatActivity {
         dbRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user userProfile = snapshot.getValue(user.class);
+                //read user data from database and store in userProfile (user Class)
+                User userProfile = snapshot.getValue(User.class);
                 if(userProfile != null){
                    usernameET.setText(userProfile.getUsername());
                    firstNameET.setText(userProfile.getFirstName());
@@ -76,6 +73,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.start();
                 String newUsername, newFirstName, newLastName, newEmail;
+                //store values from EditText fields into the following String
                 newUsername = usernameET.getText().toString();
                 newFirstName = firstNameET.getText().toString();
                 newLastName=lastNameET.getText().toString();
@@ -83,20 +81,22 @@ public class UpdateActivity extends AppCompatActivity {
 
                 //update user data in realtime database
                 if (user != null) {
+                    //store String into a Hashmap with the respective database path
                     Map<String, Object> profileUpdate = new HashMap<>();
                     profileUpdate.put(userID + "/username", newUsername);
                     profileUpdate.put(userID + "/firstName", newFirstName);
                     profileUpdate.put(userID + "/lastName", newLastName);
                     profileUpdate.put(userID + "/email", newEmail);
-
+                    //update values in the database
                     dbRef.updateChildren(profileUpdate);
-
+                    //inform the user of the action performed
                     Toast.makeText(UpdateActivity.this, " Profile has been updated", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(UpdateActivity.this,MainActivity.class));
                 }
             }
         });
 
+        //cancel button to go back to Main activity
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

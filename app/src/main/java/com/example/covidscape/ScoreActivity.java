@@ -63,7 +63,7 @@ public class ScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start();
-                startActivity(new Intent(ScoreActivity.this,quiz.class));
+                startActivity(new Intent(ScoreActivity.this, QuizHomeActivity.class));
             }
         });
 
@@ -80,36 +80,32 @@ public class ScoreActivity extends AppCompatActivity {
         dbRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user userProfile = snapshot.getValue(user.class);
+                User userProfile = snapshot.getValue(User.class);
                 if(userProfile != null){
                     userXP=userProfile.userXP;
                     System.out.println("userXP: "+userXP);
 
                     updateXP(score,userXP, dbRef, userProfile);
-//                    newXP=xpEarned+userXP;
-//                    Map<String, Object> pointsUpdate = new HashMap<>();
-//                    pointsUpdate.put(userID+"/userXP", newXP);
-//                    dbRef.updateChildren(pointsUpdate);
-
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println("Can't get current XP");
+                //System.out.println("Can't get current XP"); //for debugging
             }
         });
 
-        //update new XP points
-
     }
-    private void updateXP(int score, int userXP, DatabaseReference dbRef, user user){
-        xpEarned = score * 20;
-        System.out.println("xpEarned: " + xpEarned);
-        newXP = xpEarned + userXP;
-        System.out.println("newXP: " + newXP);
+    //update new XP points
+    private void updateXP(int score, int userXP, DatabaseReference dbRef, User user){
+        xpEarned = score * 20; //each correct answer is worth 20xp
+        //System.out.println("xpEarned: " + xpEarned); //for debugging
+        newXP = xpEarned + userXP;//add xp earned from quiz and user's old xp together
+        //System.out.println("newXP: " + newXP);//for debugging
         if (user != null) {
+            //stores new xp into hashmap with the database path
             Map<String, Object> pointsUpdate = new HashMap<>();
             pointsUpdate.put(userID + "/userXP", newXP);
+            //update new userXP points into database
             dbRef.updateChildren(pointsUpdate);
 
             Toast.makeText(this, xpEarned + " XP has been added!", Toast.LENGTH_SHORT).show();

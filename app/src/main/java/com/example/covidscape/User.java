@@ -1,7 +1,7 @@
 package com.example.covidscape;
 
 // java class to store user info
-public class user {
+public class User {
 
     public String username;
     public String email;
@@ -11,12 +11,12 @@ public class user {
     public int userXP;
     public String avatar;
 
-    public user(){
+    public User(){
 
     }
 
     // overloaded constructor for sign up
-    public user(String username, String email, String firstName, String lastName, int userXP, String avatar){
+    public User(String username, String email, String firstName, String lastName, int userXP, String avatar){
     this.username = username;
     this.email = email;
     this.firstName = firstName;

@@ -1,7 +1,6 @@
 package com.example.covidscape;
 
 import android.content.Intent;
-import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 //Login Activity
-public class login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private TextView etEmail, etPw, forgotPass;
     Button loginBtn, signupBtn;
@@ -46,7 +45,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                startActivity(new Intent(login.this, Signup.class)); //direct to Signup activity
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class)); //direct to Signup activity
             }
         });
 
@@ -60,7 +59,7 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                startActivity(new Intent(login.this, forgotPassword.class)); //direct to forgotPassword activity
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)); //direct to forgotPassword activity
             }
         });
     }
@@ -82,13 +81,13 @@ public class login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(login.this, "Login successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login successfully", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //chg SOPChoiceActivity to homepage's java file
-                                startActivity(new Intent(login.this, MainActivity.class));
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(login.this, "Login failed. [ " + task.getException().getMessage() + " ]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login failed. [ " + task.getException().getMessage() + " ]", Toast.LENGTH_SHORT).show();
                             }
 
 

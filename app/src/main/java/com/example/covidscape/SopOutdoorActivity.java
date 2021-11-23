@@ -8,27 +8,28 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//SOP guide for indoor
-public class sopIndoor extends AppCompatActivity {
+//SOP guide for outdoor
+public class SopOutdoorActivity extends AppCompatActivity {
     ImageButton back2Homepage;
     private MediaPlayer mediaPlayer, bgmPlayer;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sop_indoor);
+        setContentView(R.layout.sop_outdoor);
 
         //button sound effect for activity
-        mediaPlayer = MediaPlayer.create(this,R.raw.pop);
-        bgmPlayer =MediaPlayer.create(this,R.raw.home);
+        mediaPlayer = MediaPlayer.create(this, R.raw.pop);
+        bgmPlayer = MediaPlayer.create(this, R.raw.home);
 
         //back button to Main Activity
-        back2Homepage = findViewById(R.id.xBtnH);
+        back2Homepage = findViewById(R.id.xBtnNH);
         back2Homepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //change SOPChoiceActivity to Homepage java class
                 mediaPlayer.start();
-                startActivity(new Intent(sopIndoor.this, MainActivity.class));
+                startActivity(new Intent(SopOutdoorActivity.this, MainActivity.class));
             }
         });
     }
@@ -55,5 +56,6 @@ public class sopIndoor extends AppCompatActivity {
         bgmPlayer.release();
 
     }
+
 
 }

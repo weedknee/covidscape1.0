@@ -11,7 +11,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 //In app Notification
-public class pushNotification extends FirebaseMessagingService  {
+public class PushNotification extends FirebaseMessagingService  {
 
     //in app push notification (DID NOT WORK)
     @RequiresApi(api = Build.VERSION_CODES.O)

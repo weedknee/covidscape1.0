@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new homeFrag()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
     }
 
     //bottom navigatin with 3 fragments
@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (item.getItemId()) {
                         case R.id.firstFragment:
-                            selectedFragment = new petFrag(); //avatar fragment
+                            selectedFragment = new AvatarFragment(); //avatar fragment
                             break;
                         case R.id.secondFragment:
-                            selectedFragment = new homeFrag(); //home fragment
+                            selectedFragment = new HomeFragment(); //home fragment
                             break;
                         case R.id.thirdFragment:
-                            selectedFragment = new profileFrag(); //profile fragment
+                            selectedFragment = new ProfileFragment(); //profile fragment
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

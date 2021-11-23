@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 // adapter for recyclerView
-public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covidNewsViewHolder> {
+public class CovidNewsAdapter extends RecyclerView.Adapter<CovidNewsAdapter.CovidNewsViewHolder> {
 
-    private ArrayList<covidNewsItem> covidNewsItems;
+    private ArrayList<CovidNewsItem> covidNewsItems;
     private Context context;
 
-    public covidNewsAdapter(Context context, ArrayList<covidNewsItem> covidNewsItems) {
+    public CovidNewsAdapter(Context context, ArrayList<CovidNewsItem> covidNewsItems) {
         this.context = context;
         this.covidNewsItems = covidNewsItems;
     }
@@ -26,16 +26,16 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
     //create viewHolder for recyclerView
     @NonNull
     @Override
-    public covidNewsAdapter.covidNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CovidNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
-        return new covidNewsViewHolder(view);
+        return new CovidNewsViewHolder(view);
     }
 
     //set value for each component of row item
     @Override
-    public void onBindViewHolder(@NonNull covidNewsAdapter.covidNewsViewHolder holder, int position) {
-        covidNewsAdapter.covidNewsViewHolder viewHolder = (covidNewsAdapter.covidNewsViewHolder) holder;
-        covidNewsItem currentData = covidNewsItems.get(position);
+    public void onBindViewHolder(@NonNull CovidNewsViewHolder holder, int position) {
+        CovidNewsViewHolder viewHolder = (CovidNewsViewHolder) holder;
+        CovidNewsItem currentData = covidNewsItems.get(position);
         viewHolder.imageView.setImageResource(currentData.getImageResource());
         viewHolder.view1.setText(currentData.getCases());
         viewHolder.view2.setText(currentData.getTotalNum());
@@ -50,12 +50,12 @@ public class covidNewsAdapter extends RecyclerView.Adapter<covidNewsAdapter.covi
     }
 
     //get each component of item row
-    public class covidNewsViewHolder extends RecyclerView.ViewHolder {
+    public class CovidNewsViewHolder extends RecyclerView.ViewHolder {
 
         private TextView view1, view2, view3, view4;
         private ImageView imageView;
 
-        public covidNewsViewHolder(@NonNull View itemView) {
+        public CovidNewsViewHolder(@NonNull View itemView) {
             super(itemView);
             view1 = (TextView) itemView.findViewById(R.id.total_cases);
             view2 = itemView.findViewById(R.id.total_num);

@@ -20,7 +20,7 @@ public class QuizHandler {
         this.op4 = op4;
         this.answer = answer;
     }
-
+//getters and setters
     public String getQuestion() {
         return question;
     }

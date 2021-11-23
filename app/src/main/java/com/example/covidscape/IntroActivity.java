@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.lottie.LottieAnimationView;
 
 //intro Splash Screen
-public class intro extends AppCompatActivity {
+public class IntroActivity extends AppCompatActivity {
 
     ImageView intro, logo;
     LottieAnimationView lottie;
@@ -36,7 +36,7 @@ public class intro extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){ //display login class after intro splash screen
             @Override
             public void run(){
-                Intent intent = new Intent(getApplicationContext(),login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
 
             }

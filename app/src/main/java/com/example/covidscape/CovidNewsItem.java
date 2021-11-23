@@ -1,11 +1,11 @@
 package com.example.covidscape;
 
 //java class to store Covid news item
-public class covidNewsItem {
+public class CovidNewsItem {
     private int imageResource;
     private String cases, dailyCases, totalNum, dailyNum;
 
-    public covidNewsItem(int imageResource, String cases, String totalNum, String dailyCases, String dailyNum) {
+    public CovidNewsItem(int imageResource, String cases, String totalNum, String dailyCases, String dailyNum) {
         this.imageResource = imageResource;
         this.cases = cases;
         this.dailyCases = dailyCases;

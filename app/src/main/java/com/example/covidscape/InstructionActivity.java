@@ -6,7 +6,7 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 //Quiz Instruction pop up window activity
-public class pop extends AppCompatActivity {
+public class InstructionActivity extends AppCompatActivity {
 
     //pop up window for instruction in Quiz activity
     @Override
