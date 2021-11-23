@@ -53,6 +53,7 @@ public class UpdateActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID=user.getUid();
 
+        //retrieve user data from realtime database based on user id and input into text field
         dbRef.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,6 +81,7 @@ public class UpdateActivity extends AppCompatActivity {
                 newLastName=lastNameET.getText().toString();
                 newEmail=emailET.getText().toString();
 
+                //update user data in realtime database
                 if (user != null) {
                     Map<String, Object> profileUpdate = new HashMap<>();
                     profileUpdate.put(userID + "/username", newUsername);
