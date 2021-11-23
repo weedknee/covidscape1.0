@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 //forgot password to reset password via email activity
-public class forgotPassword extends AppCompatActivity {
+public class ForgotPasswordActivity extends AppCompatActivity {
 
     private EditText emailEditTxt;
     private Button resetBtn;
@@ -41,7 +41,7 @@ public class forgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                startActivity(new Intent(forgotPassword.this,login.class)); //back to login activity
+                startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class)); //back to login activity
             }
         });
 
@@ -50,7 +50,7 @@ public class forgotPassword extends AppCompatActivity {
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
                 resetPassword(); //function to reset password
-                startActivity(new Intent(forgotPassword.this,login.class)); //back to login activity
+                startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class)); //back to login activity
             }
         });
     }
@@ -74,9 +74,9 @@ public class forgotPassword extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(forgotPassword.this,"Check your email to reset Password!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForgotPasswordActivity.this,"Check your email to reset Password!", Toast.LENGTH_LONG).show();
                     }else {
-                        Toast.makeText(forgotPassword.this,"Try again! Invalid Email Entered!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ForgotPasswordActivity.this,"Try again! Invalid Email Entered!", Toast.LENGTH_LONG).show();
                     }
                 }
             });

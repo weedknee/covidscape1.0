@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 //Quiz menu screen
-public class quiz extends AppCompatActivity {
+public class QuizHomeActivity extends AppCompatActivity {
 
     Button start, instruction, back;
 
@@ -29,7 +29,7 @@ public class quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                startActivity(new Intent(quiz.this,loadingQuiz.class));
+                startActivity(new Intent(QuizHomeActivity.this, LoadQuizActivity.class));
             }
         });
 
@@ -38,7 +38,7 @@ public class quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                startActivity(new Intent(quiz.this,MainActivity.class));
+                startActivity(new Intent(QuizHomeActivity.this,MainActivity.class));
             }
         });
 
@@ -55,7 +55,7 @@ public class quiz extends AppCompatActivity {
     }
 
     private void openPopUpWindow() {
-        Intent popupWindow = new Intent(quiz.this,pop.class);
+        Intent popupWindow = new Intent(QuizHomeActivity.this, InstructionActivity.class);
         startActivity(popupWindow);
     }
 }

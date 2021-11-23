@@ -1,6 +1,6 @@
 package com.example.covidscape;
 
-import static com.example.covidscape.loadingQuiz.questionBank;
+import static com.example.covidscape.LoadQuizActivity.questionBank;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -27,6 +27,7 @@ public class QuizActivity extends AppCompatActivity {
     int index=0, currentScore=0, questionsAttempted=1;
     final int  TOTAL_QUESTIONS=5;
     private MediaPlayer mediaPlayer, bgmPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -46,8 +47,11 @@ public class QuizActivity extends AppCompatActivity {
         bgmPlayer.start();
 
         progressBar= findViewById(R.id.progressBar2);
+        //store questions from questionBank in LoadQuizActivity
         allQuestions=questionBank;
+        //shuffle allQuestions to randomize the question list
         Collections.shuffle(allQuestions);
+        //get first question
         quizHandler=allQuestions.get(index);
         nextQuestion();
 
@@ -56,6 +60,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mediaPlayer.start(); //button sound effect
                 checkAnswer(options[0]);
+                //check if questions attempted reached the limit
                 if(questionsAttempted>TOTAL_QUESTIONS){
                     finishQuiz();
                 }
@@ -102,7 +107,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void nextQuestion() {
-
+        //changes text to next question
         if(options[0].isEnabled()) {
             question.setText(allQuestions.get(index).getQuestion());
             options[0].setText(allQuestions.get(index).getOp1());
@@ -114,21 +119,30 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(Button b){
+        //increment questions attempted
         questionsAttempted++;
+        //users only have 1 attempt to answer
+        //disable answer option buttons
         for (int i=0; i<options.length; i++){
             options[i].setClickable(false);
             if(options[i]!=b){
+                //change colors of buttons that weren't selected to gray
                 options[i].setBackgroundColor(getResources().getColor(R.color.gray_disabled));
             }
         }
+        //get answer from question list
         String correctAnswer=allQuestions.get(index).getAnswer();
+        //if answer is correct, button changes to green and score increments
         if(b.getText().toString().trim().toLowerCase().equalsIgnoreCase(correctAnswer.trim())){
             b.setBackgroundColor(getResources().getColor(R.color.green_correct));
             currentScore++;
         }
+        //else, wrong button selected changes to red
         else{b.setBackgroundColor(getResources().getColor(R.color.red_wrong));}
         System.out.println(correctAnswer);
 
+        //as the color changes too fast, we delay 200 milisecond so the user can
+        // see the color feedback before it changes back to default yellow
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -144,6 +158,8 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
+    //function called to start score activity when
+    //quiz if completed
     private void finishQuiz(){
         Intent intent = new Intent(QuizActivity.this, ScoreActivity.class);
         intent.putExtra("score", currentScore);

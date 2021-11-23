@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 //Avatar fragment
-public class petFrag extends Fragment {
+public class AvatarFragment extends Fragment {
     View view;
     final int MAX_XP = 100;
     int userXP, userLevel;
@@ -44,15 +44,15 @@ public class petFrag extends Fragment {
         usernameTV = view.findViewById(R.id.txtUsername);
         avatarImg = view.findViewById(R.id.imgAvatar);
 
-        //scores update firebase
         user = FirebaseAuth.getInstance().getCurrentUser();
         dbRef = FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users"); // retrieve data from "Users" in firebase
         userID = user.getUid();
 
+        //read user data from database
         dbRef.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user userProfile = snapshot.getValue(user.class);
+                User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null) {
                     //calculate xp and level
                     userXP = userProfile.userXP;
@@ -62,9 +62,11 @@ public class petFrag extends Fragment {
                     levelBar.setProgress(userProfile.userXP % MAX_XP);
                     usernameTV.setText(userProfile.username);
 
+                    //get avatar id/name
                     String avatar = userProfile.getAvatar();
                     System.out.println(avatar);
 
+                    //switch case to set avatar based on level
                     switch (userLevel) {
                         case 0:
                             if (avatar.equals("boy")) {
@@ -104,9 +106,6 @@ public class petFrag extends Fragment {
 
             }
         });
-        //set avatar according to levels
-
-
         return view;
     }
 

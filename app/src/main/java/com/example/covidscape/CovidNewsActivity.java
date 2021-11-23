@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 //Web scrapping real time data from covid.moh to display newest statistics
-public class covidNews extends AppCompatActivity {
+public class CovidNewsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private String date_source;
     private String[] cases, dailyCases;
     private ArrayList<String> totalNum = new ArrayList<>(), dailNum = new ArrayList<>();
-    private ArrayList<covidNewsItem> CovidNewsItems = new ArrayList<>();
-    private covidNewsAdapter CovidNewsAdapter;
+    private ArrayList<com.example.covidscape.CovidNewsItem> CovidNewsItems = new ArrayList<>();
+    private com.example.covidscape.CovidNewsAdapter CovidNewsAdapter;
     private ProgressBar progressBar;
     private LinearLayoutManager linearLayoutManager;
     private Document doc;
@@ -59,14 +59,14 @@ public class covidNews extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                startActivity(new Intent(covidNews.this,MainActivity.class));
+                startActivity(new Intent(CovidNewsActivity.this,MainActivity.class));
             }
         });
 
         recyclerView.setHasFixedSize(true);
-        linearLayoutManager = new LinearLayoutManager(covidNews.this);
+        linearLayoutManager = new LinearLayoutManager(CovidNewsActivity.this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        CovidNewsAdapter = new covidNewsAdapter(covidNews.this, CovidNewsItems);
+        CovidNewsAdapter = new CovidNewsAdapter(CovidNewsActivity.this, CovidNewsItems);
         recyclerView.setAdapter(CovidNewsAdapter);
         covidNewsItem = new CovidNewsItem();
         covidNewsItem.execute();
@@ -79,7 +79,7 @@ public class covidNews extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             progressBar.setVisibility(View.VISIBLE);
-            progressBar.startAnimation(AnimationUtils.loadAnimation(covidNews.this, android.R.anim.fade_in));
+            progressBar.startAnimation(AnimationUtils.loadAnimation(CovidNewsActivity.this, android.R.anim.fade_in));
         }
 
         @Override
@@ -91,14 +91,14 @@ public class covidNews extends AppCompatActivity {
             //add web scrap data to array list, object of CovidNewsItem to get data and display as row item in recyclerView
             cases = getResources().getStringArray(R.array.cases);
             dailyCases = getResources().getStringArray(R.array.dailyCases);
-            CovidNewsItems.add(new covidNewsItem(R.drawable.ic_disease, cases[0], totalNum.get(0), dailyCases[0], dailNum.get(0)));
-            CovidNewsItems.add(new covidNewsItem(R.drawable.ic_deaths, cases[1], totalNum.get(1), dailyCases[1], dailNum.get(1)));
-            CovidNewsItems.add(new covidNewsItem(R.drawable.ic_recovered, cases[2], totalNum.get(2), dailyCases[2], dailNum.get(2)));
-            CovidNewsItems.add(new covidNewsItem(R.drawable.ic_vaccine, cases[3], totalNum.get(3), dailyCases[3], dailNum.get(3)));
-            CovidNewsItems.add(new covidNewsItem(R.drawable.ic_disease, cases[4], totalNum.get(4), dailyCases[4], dailNum.get(4)));
+            CovidNewsItems.add(new com.example.covidscape.CovidNewsItem(R.drawable.ic_disease, cases[0], totalNum.get(0), dailyCases[0], dailNum.get(0)));
+            CovidNewsItems.add(new com.example.covidscape.CovidNewsItem(R.drawable.ic_deaths, cases[1], totalNum.get(1), dailyCases[1], dailNum.get(1)));
+            CovidNewsItems.add(new com.example.covidscape.CovidNewsItem(R.drawable.ic_recovered, cases[2], totalNum.get(2), dailyCases[2], dailNum.get(2)));
+            CovidNewsItems.add(new com.example.covidscape.CovidNewsItem(R.drawable.ic_vaccine, cases[3], totalNum.get(3), dailyCases[3], dailNum.get(3)));
+            CovidNewsItems.add(new com.example.covidscape.CovidNewsItem(R.drawable.ic_disease, cases[4], totalNum.get(4), dailyCases[4], dailNum.get(4)));
 
             progressBar.setVisibility(View.GONE);
-            progressBar.startAnimation(AnimationUtils.loadAnimation(covidNews.this, android.R.anim.fade_out));
+            progressBar.startAnimation(AnimationUtils.loadAnimation(CovidNewsActivity.this, android.R.anim.fade_out));
 
             CovidNewsAdapter.notifyDataSetChanged();
         }

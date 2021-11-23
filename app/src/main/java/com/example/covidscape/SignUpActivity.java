@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 //Sign up Activity
-public class Signup extends AppCompatActivity implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     LottieAnimationView writing;
     private EditText username, email, password, firstName, lastName;
@@ -55,7 +55,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
                 mediaPlayer.start();
-                startActivity(new Intent(Signup.this,login.class));
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             }
         });
 
@@ -75,7 +75,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
             case R.id.Done:
                 mediaplayerBtn.start(); //button sound effect
                 registerUser();
-                startActivity(new Intent(Signup.this,login.class));
+                startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
                 break;
         }
     }
@@ -102,17 +102,17 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            user User = new user(getUsername,getEmail,getfirstName,getLastName,0, avatar); //store into java user class
+                            User User = new User(getUsername,getEmail,getfirstName,getLastName,0, avatar); //store into java user class
                             FirebaseDatabase.getInstance("https://covidscape-login-logout-sop-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users") //store in "Users" firebase database
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(User).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Signup.this,"success",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignUpActivity.this,"success",Toast.LENGTH_LONG).show();
 
                                     }else {
-                                        Toast.makeText(Signup.this,"failed",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignUpActivity.this,"failed",Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });

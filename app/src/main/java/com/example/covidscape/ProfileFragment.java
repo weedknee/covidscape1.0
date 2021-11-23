@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 //User profile fragment
-public class profileFrag extends Fragment {
+public class ProfileFragment extends Fragment {
 
     private Button logoutBtn, updateBtn;
     private ImageButton arrowBack;
@@ -59,7 +59,7 @@ public class profileFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); //button sound effect
-                Intent intent = new Intent(getActivity(), login.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 Toast.makeText(getActivity(), "Please Perform Login/Sign Up", Toast.LENGTH_LONG).show();
             }
@@ -79,7 +79,7 @@ public class profileFrag extends Fragment {
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user userProfile = snapshot.getValue(user.class);
+                User userProfile = snapshot.getValue(User.class);
 
                 if(userProfile != null){
                     String username = userProfile.username;

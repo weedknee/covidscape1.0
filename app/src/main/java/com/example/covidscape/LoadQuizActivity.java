@@ -12,7 +12,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 //Loading screen before Quiz starts
-public class loadingQuiz extends AppCompatActivity {
+public class LoadQuizActivity extends AppCompatActivity {
     public static ArrayList<QuizHandler> questionBank;
     DatabaseReference databaseReference;
 
@@ -27,11 +27,13 @@ public class loadingQuiz extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //for loop to read all questions in the database
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     QuizHandler quizHandler = dataSnapshot.getValue(QuizHandler.class);
+                    //store questions into array list
                     questionBank.add(quizHandler);
                 }
-                Intent intent = new Intent(loadingQuiz.this, QuizActivity.class);
+                Intent intent = new Intent(LoadQuizActivity.this, QuizActivity.class);
                 startActivity(intent);
             }
 

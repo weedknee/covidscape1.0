@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Covidscape">
 
         <activity
-            android:name=".intro"
+            android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,23 +23,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".sopIndoor" />
-        <activity android:name=".sopOutdoor" />
-        <activity android:name=".login" />
-        <activity android:name=".quiz" />
-        <activity android:name=".Signup" />
-        <activity android:name=".loadingQuiz" />
+        <activity android:name=".SopIndoorActivity" />
+        <activity android:name=".SopOutdoorActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".QuizHomeActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".LoadQuizActivity" />
         <activity android:name=".ScoreActivity" />
         <activity android:name=".QuizActivity" />
         <activity
-            android:name=".pop"
+            android:name=".InstructionActivity"
             android:theme="@style/Theme.AppCompat.transparent_bg" />
-        <activity android:name=".covidNews" />
-        <activity android:name=".forgotPassword" />
+        <activity android:name=".CovidNewsActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".UpdateActivity" />
 
 
-        <service android:name=".pushNotification" android:exported="false">
+        <service android:name=".PushNotification" android:exported="false">
             <intent-filter>
                 <action android:name=".com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

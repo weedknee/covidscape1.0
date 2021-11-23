@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 //Main page fragment
-public class homeFrag extends Fragment {
+public class HomeFragment extends Fragment {
 
     private ImageButton indoor, outdoor,quiz,covidNews;
     private FirebaseAuth mAuth;
@@ -47,7 +47,7 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); // button sound effect
-                Intent intent = new Intent(getActivity(), sopIndoor.class);
+                Intent intent = new Intent(getActivity(), SopIndoorActivity.class);
                 startActivity(intent);
                 }
         });
@@ -56,7 +56,7 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); // button sound effect
-                Intent intent = new Intent(getActivity(), sopOutdoor.class);
+                Intent intent = new Intent(getActivity(), SopOutdoorActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); // button sound effect
-                Intent intent = new Intent(getActivity(),quiz.class);
+                Intent intent = new Intent(getActivity(), QuizHomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,7 +74,7 @@ public class homeFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 mediaplayer.start(); // button sound effect
-                Intent intent = new Intent(getActivity(), covidNews.class);
+                Intent intent = new Intent(getActivity(), CovidNewsActivity.class);
                 startActivity(intent);
             }
         });
@@ -89,7 +89,7 @@ public class homeFrag extends Fragment {
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user userProfile = snapshot.getValue(user.class); // get username from database to display in home screen
+                User userProfile = snapshot.getValue(User.class); // get username from database to display in home screen
                 if (userProfile != null) {
                     String firstName = userProfile.firstName;
                     greetingUserTextView.setText("Hello, " + firstName + "!");
